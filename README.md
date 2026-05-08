@@ -2,7 +2,7 @@
 
 Protótipo de uma plataforma para monitoramento de segurança em bancos de dados.
 
-Site: https://kl1nnn.github.io/dbshield
+Site: `https://kl1nnn.github.io/dbshield` e `https://kl1nnn.github.io/dbshield/#/dashboard`
 
 O projeto apresenta uma página institucional e um painel interno com indicadores de tentativas de invasão, nível de risco, parâmetros do banco monitorado e uma explicação simples do fluxo de detecção.
 
