@@ -33,7 +33,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" onClick={openDashboard}>Ver painel</Button>
+          <Button variant="ghost" size="sm" onClick={openDashboard}>Acessar painel</Button>
           <Button size="sm" onClick={() => scrollTo("contact")}>Agendar conversa</Button>
         </div>
         <button className="md:hidden text-muted-foreground hover:text-foreground transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
@@ -52,7 +52,7 @@ const Navbar = () => {
                 </button>
               ))}
               <div className="flex gap-3 pt-3">
-                <Button variant="ghost" size="sm" className="flex-1" onClick={() => { openDashboard(); setMobileOpen(false); }}>Ver painel</Button>
+                <Button variant="ghost" size="sm" className="flex-1" onClick={() => { openDashboard(); setMobileOpen(false); }}>Acessar painel</Button>
                 <Button size="sm" className="flex-1" onClick={() => { scrollTo("contact"); setMobileOpen(false); }}>Agendar conversa</Button>
               </div>
             </div>
@@ -83,8 +83,8 @@ const Hero = () => (
           O DBShield centraliza sinais de acesso, tentativas suspeitas e pontos de configuração para equipes que precisam enxergar o que acontece no banco antes que vire incidente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="hero" onClick={openDashboard}>Ver painel <ChevronRight className="ml-1 h-5 w-5" /></Button>
-          <Button variant="hero-outline" onClick={() => scrollTo("contact")}>Falar com o time</Button>
+          <Button variant="hero" onClick={() => scrollTo("contact")}>Solicitar demonstração <ChevronRight className="ml-1 h-5 w-5" /></Button>
+          <Button variant="hero-outline" onClick={() => scrollTo("features")}>Conhecer recursos</Button>
         </div>
         <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-12 text-muted-foreground text-sm">
           {["Logs organizados por risco","Alertas para eventos críticos","Relatórios para auditoria"].map((t) => (
