@@ -8,6 +8,10 @@ const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 };
 
+const openDashboard = () => {
+  window.location.hash = "#/dashboard";
+};
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [["features","Recursos"],["testimonials","Depoimentos"],["pricing","Planos"],["faq","FAQ"],["contact","Contato"]];
@@ -29,8 +33,8 @@ const Navbar = () => {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">Entrar</Button>
-          <Button size="sm" onClick={() => scrollTo("contact")}>Agendar Demo</Button>
+          <Button variant="ghost" size="sm" onClick={openDashboard}>Ver painel</Button>
+          <Button size="sm" onClick={() => scrollTo("contact")}>Agendar conversa</Button>
         </div>
         <button className="md:hidden text-muted-foreground hover:text-foreground transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -48,8 +52,8 @@ const Navbar = () => {
                 </button>
               ))}
               <div className="flex gap-3 pt-3">
-                <Button variant="ghost" size="sm" className="flex-1">Entrar</Button>
-                <Button size="sm" className="flex-1" onClick={() => { scrollTo("contact"); setMobileOpen(false); }}>Agendar Demo</Button>
+                <Button variant="ghost" size="sm" className="flex-1" onClick={() => { openDashboard(); setMobileOpen(false); }}>Ver painel</Button>
+                <Button size="sm" className="flex-1" onClick={() => { scrollTo("contact"); setMobileOpen(false); }}>Agendar conversa</Button>
               </div>
             </div>
           </motion.div>
@@ -79,8 +83,8 @@ const Hero = () => (
           O DBShield centraliza sinais de acesso, tentativas suspeitas e pontos de configuração para equipes que precisam enxergar o que acontece no banco antes que vire incidente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="hero" onClick={() => scrollTo("contact")}>Começar agora <ChevronRight className="ml-1 h-5 w-5" /></Button>
-          <Button variant="hero-outline" onClick={() => scrollTo("contact")}>Agendar demonstração</Button>
+          <Button variant="hero" onClick={openDashboard}>Ver painel <ChevronRight className="ml-1 h-5 w-5" /></Button>
+          <Button variant="hero-outline" onClick={() => scrollTo("contact")}>Falar com o time</Button>
         </div>
         <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-12 text-muted-foreground text-sm">
           {["Logs organizados por risco","Alertas para eventos críticos","Relatórios para auditoria"].map((t) => (
@@ -124,17 +128,17 @@ const Features = () => (
 );
 
 const testimonials = [
-  { name: "Marina Costa", role: "Coordenadora de TI", avatar: "MC", stars: 5, text: "O painel ajudou nossa equipe a enxergar rapidamente quais acessos mereciam atenção. Antes disso, tudo ficava perdido nos logs." },
-  { name: "João Pereira", role: "Analista de infraestrutura", avatar: "JP", stars: 5, text: "A parte mais útil foi separar tentativa bloqueada, evento em observação e risco real. Fica bem mais fácil explicar a situação para quem não é técnico." },
-  { name: "Renata Lima", role: "Desenvolvedora backend", avatar: "RL", stars: 5, text: "Usei o dashboard como base para discutir autenticação, backups e permissões com o time. Ele deixa os problemas visíveis sem exagerar no jargão." },
+  { name: "Marina Costa", role: "Coordenadora de TI", avatar: "MC", stars: 5, text: "O painel deixa claro quais acessos pedem atenção primeiro. Antes, a equipe precisava abrir vários logs para chegar na mesma conclusão." },
+  { name: "João Pereira", role: "Analista de infraestrutura", avatar: "JP", stars: 5, text: "A separação entre bloqueado, em observação e risco alto ajuda muito na hora de explicar o cenário para quem não vive no terminal." },
+  { name: "Renata Lima", role: "Desenvolvedora backend", avatar: "RL", stars: 5, text: "Usei a visão de ambiente para discutir autenticação, backup e permissões com o time. Ficou objetivo, sem transformar tudo em jargão." },
 ];
 
 const Testimonials = () => (
   <section id="testimonials" className="py-24 bg-gradient-card border-y border-border">
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Feedbacks usados no <span className="text-gradient-primary">protótipo</span></h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Depoimentos fictícios para representar perfis que usariam a ferramenta em uma empresa.</p>
+        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Pensado para quem cuida da <span className="text-gradient-primary">operação</span></h2>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Cenários de uso baseados em rotinas comuns de TI, infraestrutura e desenvolvimento.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
@@ -169,7 +173,7 @@ const Pricing = () => (
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Planos para diferentes <span className="text-gradient-primary">operações</span></h2>
-        <p className="text-muted-foreground text-lg">Valores fictícios usados para demonstrar a tela comercial do projeto.</p>
+        <p className="text-muted-foreground text-lg">Uma forma simples de organizar escopo, retenção e suporte conforme o tamanho do ambiente.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {plans.map((plan, i) => (
@@ -190,7 +194,7 @@ const Pricing = () => (
                 </li>
               ))}
             </ul>
-            <Button variant={plan.popular ? "default" : "outline"} className="w-full" size="lg" onClick={() => scrollTo("contact")}>Começar agora</Button>
+            <Button variant={plan.popular ? "default" : "outline"} className="w-full" size="lg" onClick={() => scrollTo("contact")}>Conversar sobre o plano</Button>
           </motion.div>
         ))}
       </div>
@@ -256,7 +260,7 @@ const Contact = () => {
       <div className="container max-w-2xl">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Quer testar o <span className="text-gradient-primary">fluxo</span>?</h2>
-          <p className="text-muted-foreground text-lg">O formulário simula o contato para fechar a navegação da landing page.</p>
+          <p className="text-muted-foreground text-lg">Preencha os campos para ver a experiência de contato dentro da interface.</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
           className="bg-gradient-card border border-border rounded-3xl p-8 md:p-10">
@@ -264,7 +268,7 @@ const Contact = () => {
             <div className="flex flex-col items-center gap-4 py-12 text-center">
               <CheckCircle className="h-16 w-16 text-primary" />
               <h3 className="text-2xl font-display font-bold">Mensagem enviada!</h3>
-              <p className="text-muted-foreground">O estado de confirmação foi registrado na interface.</p>
+              <p className="text-muted-foreground">Recebemos sua solicitação de teste na interface.</p>
               <Button variant="outline" onClick={() => { setStatus("idle"); setForm({ name: "", email: "", company: "", message: "" }); }}>Enviar outra mensagem</Button>
             </div>
           ) : (

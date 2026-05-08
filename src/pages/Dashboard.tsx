@@ -2,7 +2,9 @@ import { useState } from "react";
 import {
   Shield, AlertTriangle, CheckCircle, XCircle, Activity,
   Database, Lock, Globe, Clock, Eye, Cpu,
-  RefreshCw, Bell, Settings, LogOut, Zap
+  RefreshCw, Bell, Settings, LogOut, Zap,
+  Building2, HeartPulse, ShoppingCart, Server, KeyRound,
+  ArrowUp, FileOutput, Search
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis,
@@ -277,13 +279,13 @@ export default function Dashboard() {
                 <p className="text-sm text-muted-foreground mb-5">Exemplos de operação que podem se beneficiar desse tipo de visão</p>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                   {[
-                    { icon: "🏦", titulo: "Financeiro", desc: "Ambientes com dados sensíveis, auditoria frequente e necessidade de resposta rápida." },
-                    { icon: "🏥", titulo: "Saúde", desc: "Controle de acesso a prontuários, agendas e registros de atendimento." },
-                    { icon: "🛒", titulo: "E-commerce", desc: "Acompanhamento de pedidos, clientes e picos de tráfego em datas críticas." },
-                    { icon: "🏢", titulo: "Sistemas internos", desc: "Times que mantêm vários bancos e precisam de uma visão única de risco." },
-                  ].map(({ icon, titulo, desc }) => (
+                    { icon: Building2, titulo: "Financeiro", desc: "Ambientes com dados sensíveis, auditoria frequente e necessidade de resposta rápida." },
+                    { icon: HeartPulse, titulo: "Saúde", desc: "Controle de acesso a prontuários, agendas e registros de atendimento." },
+                    { icon: ShoppingCart, titulo: "E-commerce", desc: "Acompanhamento de pedidos, clientes e picos de tráfego em datas críticas." },
+                    { icon: Server, titulo: "Sistemas internos", desc: "Times que mantêm vários bancos e precisam de uma visão única de risco." },
+                  ].map(({ icon: Icon, titulo, desc }) => (
                     <div key={titulo} className="bg-secondary/40 rounded-xl p-4">
-                      <p className="text-2xl mb-2">{icon}</p>
+                      <Icon className="h-5 w-5 text-primary mb-3" />
                       <p className="font-semibold text-sm mb-1">{titulo}</p>
                       <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                     </div>
@@ -302,7 +304,7 @@ export default function Dashboard() {
                   </div>
                   <div>
                     <h2 className="text-xl font-display font-bold">Como os eventos são classificados</h2>
-                    <p className="text-sm text-muted-foreground">Fluxo usado no protótipo para transformar logs em risco visual</p>
+                    <p className="text-sm text-muted-foreground">Fluxo de análise para transformar logs em risco visual</p>
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -314,7 +316,7 @@ export default function Dashboard() {
               <div className="grid md:grid-cols-3 gap-4">
                 {[
                   { step: "01", icon: Activity, titulo: "Coleta", desc: "O agente registra conexões, horários, origem, volume de consultas e eventos de autenticação relevantes." },
-                  { step: "02", icon: Cpu, titulo: "Classificação", desc: "As regras do protótipo comparam frequência, tipo de comando e histórico recente para separar ruído de risco." },
+                  { step: "02", icon: Cpu, titulo: "Classificação", desc: "As regras comparam frequência, tipo de comando e histórico recente para separar ruído de risco." },
                   { step: "03", icon: Shield, titulo: "Resposta", desc: "Eventos graves são marcados como bloqueados ou em observação, com detalhe suficiente para orientar a investigação." },
                 ].map(({ step, icon: Icon, titulo, desc }) => (
                   <div key={step} className="bg-gradient-card border border-border rounded-2xl p-6">
@@ -331,18 +333,18 @@ export default function Dashboard() {
               </div>
 
               <div className="bg-gradient-card border border-border rounded-2xl p-6">
-                <h2 className="font-semibold mb-5">Eventos acompanhados no protótipo</h2>
+                <h2 className="font-semibold mb-5">Eventos acompanhados</h2>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {[
-                    { tipo: "SQL Injection", desc: "Consultas que tentam alterar a lógica esperada de um campo de entrada.", icone: "💉" },
-                    { tipo: "Brute Force", desc: "Tentativas repetidas de login com diferentes senhas para ganhar acesso.", icone: "🔑" },
-                    { tipo: "Escalada de permissão", desc: "Uso de credenciais comuns tentando alcançar comandos ou tabelas restritas.", icone: "⬆️" },
-                    { tipo: "Leitura incomum", desc: "Volume de consulta fora do padrão normal para o usuário ou serviço.", icone: "📤" },
-                    { tipo: "Configuração fraca", desc: "Itens de segurança desativados, como autenticação em duas etapas ou TLS.", icone: "🔒" },
-                    { tipo: "Varredura", desc: "Repetição de conexões em portas, endpoints ou tabelas sem comportamento de uso normal.", icone: "⚡" },
-                  ].map(({ tipo, desc, icone }) => (
+                    { tipo: "SQL Injection", desc: "Consultas que tentam alterar a lógica esperada de um campo de entrada.", icone: Database },
+                    { tipo: "Brute Force", desc: "Tentativas repetidas de login com diferentes senhas para ganhar acesso.", icone: KeyRound },
+                    { tipo: "Escalada de permissão", desc: "Uso de credenciais comuns tentando alcançar comandos ou tabelas restritas.", icone: ArrowUp },
+                    { tipo: "Leitura incomum", desc: "Volume de consulta fora do padrão normal para o usuário ou serviço.", icone: FileOutput },
+                    { tipo: "Configuração fraca", desc: "Itens de segurança desativados, como autenticação em duas etapas ou TLS.", icone: Lock },
+                    { tipo: "Varredura", desc: "Repetição de conexões em portas, endpoints ou tabelas sem comportamento de uso normal.", icone: Search },
+                  ].map(({ tipo, desc, icone: Icon }) => (
                     <div key={tipo} className="bg-secondary/40 rounded-xl p-4">
-                      <p className="text-xl mb-2">{icone}</p>
+                      <Icon className="h-5 w-5 text-primary mb-3" />
                       <p className="font-semibold text-sm mb-1">{tipo}</p>
                       <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                     </div>
