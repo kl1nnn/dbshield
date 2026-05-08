@@ -70,20 +70,20 @@ const Hero = () => (
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="max-w-3xl">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-8">
           <Lock className="h-3.5 w-3.5" />
-          Segurança de nível empresarial
+          Observabilidade e defesa para bancos de dados
         </div>
         <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6">
-          Proteja seus{" "}<span className="text-gradient-primary">bancos de dados</span>{" "}com inteligência
+          Um painel claro para acompanhar riscos em{" "}<span className="text-gradient-primary">bancos de dados</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-          Monitoramento contínuo, alertas em tempo real e proteção avançada para os dados mais críticos da sua empresa. Tudo em uma única plataforma.
+          O DBShield centraliza sinais de acesso, tentativas suspeitas e pontos de configuração para equipes que precisam enxergar o que acontece no banco antes que vire incidente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Button variant="hero" onClick={() => scrollTo("contact")}>Começar agora <ChevronRight className="ml-1 h-5 w-5" /></Button>
           <Button variant="hero-outline" onClick={() => scrollTo("contact")}>Agendar demonstração</Button>
         </div>
         <div className="flex flex-wrap items-center gap-6 md:gap-8 mt-12 text-muted-foreground text-sm">
-          {["+500 empresas protegidas","99.9% uptime","SOC 2 Compliant"].map((t) => (
+          {["Logs organizados por risco","Alertas para eventos críticos","Relatórios para auditoria"].map((t) => (
             <div key={t} className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-accent animate-pulse-glow" />{t}
             </div>
@@ -95,17 +95,17 @@ const Hero = () => (
 );
 
 const features = [
-  { icon: Shield, title: "Proteção em Tempo Real", description: "Monitoramento 24/7 com detecção automática de ameaças e vulnerabilidades nos seus bancos de dados." },
-  { icon: Database, title: "Multi-Database", description: "Suporte para PostgreSQL, MySQL, MongoDB, SQL Server e muito mais em uma única plataforma." },
-  { icon: Lock, title: "Criptografia Avançada", description: "Criptografia AES-256 em repouso e em trânsito, garantindo máxima segurança dos seus dados." },
+  { icon: Shield, title: "Eventos priorizados", description: "Tentativas de acesso, consultas suspeitas e falhas de autenticação aparecem com nível de risco e contexto do alvo." },
+  { icon: Database, title: "Ambientes diferentes", description: "A interface foi pensada para acompanhar bancos relacionais e NoSQL sem espalhar a análise em várias telas." },
+  { icon: Lock, title: "Apoio à conformidade", description: "Indicadores de criptografia, backup, autenticação e auditoria ajudam a encontrar lacunas antes da revisão formal." },
 ];
 
 const Features = () => (
   <section id="features" className="py-24">
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Segurança completa para seus <span className="text-gradient-primary">dados</span></h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Uma plataforma robusta que monitora, protege e gerencia a segurança dos bancos de dados da sua empresa.</p>
+        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Segurança tratada como <span className="text-gradient-primary">rotina</span></h2>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">A proposta é tirar sinais importantes dos logs e transformar isso em uma leitura simples para times de TI, desenvolvimento e gestão.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6">
         {features.map((feature, i) => (
@@ -124,17 +124,17 @@ const Features = () => (
 );
 
 const testimonials = [
-  { name: "Carlos Mendonça", role: "CTO, FinTech Brasil", avatar: "CM", stars: 5, text: "O DBShield nos ajudou a detectar uma tentativa de SQL injection antes que causasse qualquer dano. A equipe de segurança ficou impressionada com a velocidade dos alertas." },
-  { name: "Aline Ferreira", role: "Head de TI, Grupo Saúde+", avatar: "AF", stars: 5, text: "Implementamos o DBShield em menos de um dia. A integração com nosso MySQL foi perfeita e os relatórios de conformidade LGPD salvaram horas da nossa equipe." },
-  { name: "Rafael Torres", role: "DevOps Lead, E-Commerce Max", avatar: "RT", stars: 5, text: "Gerenciar a segurança de 12 bancos de dados diferentes era um pesadelo. Com o DBShield, temos visibilidade total em um único painel. Recomendo fortemente." },
+  { name: "Marina Costa", role: "Coordenadora de TI", avatar: "MC", stars: 5, text: "O painel ajudou nossa equipe a enxergar rapidamente quais acessos mereciam atenção. Antes disso, tudo ficava perdido nos logs." },
+  { name: "João Pereira", role: "Analista de infraestrutura", avatar: "JP", stars: 5, text: "A parte mais útil foi separar tentativa bloqueada, evento em observação e risco real. Fica bem mais fácil explicar a situação para quem não é técnico." },
+  { name: "Renata Lima", role: "Desenvolvedora backend", avatar: "RL", stars: 5, text: "Usei o dashboard como base para discutir autenticação, backups e permissões com o time. Ele deixa os problemas visíveis sem exagerar no jargão." },
 ];
 
 const Testimonials = () => (
   <section id="testimonials" className="py-24 bg-gradient-card border-y border-border">
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Empresas que <span className="text-gradient-primary">confiam</span> no DBShield</h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Veja o que nossos clientes dizem sobre a proteção dos seus dados.</p>
+        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Feedbacks usados no <span className="text-gradient-primary">protótipo</span></h2>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Depoimentos fictícios para representar perfis que usariam a ferramenta em uma empresa.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
@@ -159,17 +159,17 @@ const Testimonials = () => (
 );
 
 const plans = [
-  { name: "Starter", price: "R$99", period: "/mês", features: ["Monitoramento básico","1 banco de dados","Alertas por e-mail","Dashboard básico"], popular: false },
-  { name: "Pro", price: "R$299", period: "/mês", features: ["Análise completa","Alertas automáticos","5 bancos de dados","Relatórios mensais","Suporte prioritário"], popular: true },
-  { name: "Enterprise", price: "R$999", period: "/mês", features: ["Múltiplos bancos","Relatórios avançados","Bancos ilimitados","API dedicada","SLA 99.99%","Gerente de conta"], popular: false },
+  { name: "Essencial", price: "R$89", period: "/mês", features: ["1 banco monitorado","Alertas por e-mail","Histórico de 7 dias","Checklist de segurança"], popular: false },
+  { name: "Equipe", price: "R$249", period: "/mês", features: ["Até 5 bancos","Alertas por severidade","Relatórios mensais","Perfis de acesso","Suporte por chat"], popular: true },
+  { name: "Operação", price: "Sob consulta", period: "", features: ["Ambientes ilimitados","Integração via API","Retenção estendida","SLA contratado","Acompanhamento técnico"], popular: false },
 ];
 
 const Pricing = () => (
   <section id="pricing" className="py-24">
     <div className="container">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Planos que se adaptam ao seu <span className="text-gradient-primary">negócio</span></h2>
-        <p className="text-muted-foreground text-lg">Escolha o plano ideal para a segurança da sua empresa.</p>
+        <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Planos para diferentes <span className="text-gradient-primary">operações</span></h2>
+        <p className="text-muted-foreground text-lg">Valores fictícios usados para demonstrar a tela comercial do projeto.</p>
       </motion.div>
       <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {plans.map((plan, i) => (
@@ -199,11 +199,11 @@ const Pricing = () => (
 );
 
 const faqs = [
-  { question: "O DBShield funciona com qualquer banco de dados?", answer: "Sim! O DBShield suporta os principais bancos de dados do mercado: PostgreSQL, MySQL, MariaDB, MongoDB, SQL Server, Oracle e Redis. A integração é feita via agente leve instalado no servidor." },
-  { question: "Quanto tempo leva para configurar?", answer: "A maioria dos clientes está operacional em menos de 30 minutos. Nosso agente de monitoramento se instala com um único comando e começa a coletar dados imediatamente." },
-  { question: "Meus dados passam pelos servidores do DBShield?", answer: "Não. O DBShield monitora apenas metadados de acesso e padrões de consulta — nunca o conteúdo dos seus dados. Todo o processamento de alertas é feito localmente e apenas métricas agregadas são enviadas à nossa plataforma." },
-  { question: "O DBShield ajuda com conformidade LGPD?", answer: "Sim. O DBShield gera relatórios automáticos de acesso a dados pessoais, detecta acessos não autorizados e mantém logs de auditoria completos, facilitando a demonstração de conformidade com a LGPD." },
-  { question: "Posso cancelar a qualquer momento?", answer: "Sim, sem fidelidade ou multas. Você pode cancelar a assinatura a qualquer momento pelo painel, e o acesso continua até o fim do período pago." },
+  { question: "Este projeto bloqueia ataques de verdade?", answer: "Não. Esta versão é um protótipo de interface. Os bloqueios, gráficos e registros são simulados para demonstrar como a experiência funcionaria." },
+  { question: "Quais bancos a ideia poderia atender?", answer: "A proposta foi desenhada pensando em MySQL, PostgreSQL, SQL Server e MongoDB, mas a tela não depende de uma integração real nesta versão." },
+  { question: "O conteúdo dos dados seria analisado?", answer: "A ideia é trabalhar com metadados, logs de acesso e padrões de consulta. O dashboard não precisa expor registros sensíveis para indicar comportamento suspeito." },
+  { question: "Como a LGPD entra no projeto?", answer: "O painel ajuda a visualizar acessos, autenticação, criptografia e trilhas de auditoria, pontos que podem apoiar uma rotina de conformidade." },
+  { question: "O formulário envia mensagens reais?", answer: "Não. O envio é simulado no navegador para mostrar o estado de carregamento e confirmação da interface." },
 ];
 
 const FAQ = () => {
@@ -213,7 +213,7 @@ const FAQ = () => {
       <div className="container max-w-3xl">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Perguntas <span className="text-gradient-primary">frequentes</span></h2>
-          <p className="text-muted-foreground text-lg">Tire suas dúvidas sobre o DBShield.</p>
+          <p className="text-muted-foreground text-lg">Alguns limites e decisões do protótipo.</p>
         </motion.div>
         <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
@@ -255,8 +255,8 @@ const Contact = () => {
     <section id="contact" className="py-24">
       <div className="container max-w-2xl">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Pronto para proteger seus <span className="text-gradient-primary">dados</span>?</h2>
-          <p className="text-muted-foreground text-lg">Agende uma demonstração gratuita ou mande sua mensagem — respondemos em até 24h.</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Quer testar o <span className="text-gradient-primary">fluxo</span>?</h2>
+          <p className="text-muted-foreground text-lg">O formulário simula o contato para fechar a navegação da landing page.</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
           className="bg-gradient-card border border-border rounded-3xl p-8 md:p-10">
@@ -264,7 +264,7 @@ const Contact = () => {
             <div className="flex flex-col items-center gap-4 py-12 text-center">
               <CheckCircle className="h-16 w-16 text-primary" />
               <h3 className="text-2xl font-display font-bold">Mensagem enviada!</h3>
-              <p className="text-muted-foreground">Nossa equipe entrará em contato em breve.</p>
+              <p className="text-muted-foreground">O estado de confirmação foi registrado na interface.</p>
               <Button variant="outline" onClick={() => { setStatus("idle"); setForm({ name: "", email: "", company: "", message: "" }); }}>Enviar outra mensagem</Button>
             </div>
           ) : (
